@@ -1,0 +1,16 @@
+.button-div {
+    position: fixed;
+    flex: auto;
+}
+
+.btn-prev {
+    size: 180px; 
+    align-self: flex-start;
+}
+
+
+.btn-next {
+    size: 180px;
+    align-self: flex-end;
+
+}
