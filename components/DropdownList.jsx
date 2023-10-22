@@ -6,17 +6,15 @@ const DropdownList = () => {
     //const [sheetValue, SheetContext] = useContext('0'); let's use this context later
     const data = useContext(SheetContext);
 
-    //while (data.orderOption === '1')
-    
-    
     // Change the array order
 
 
 
     return (
     <select value={data.orderOption} onChange={(e) => data.setOrderText(e.target.value)}>
-        <option value="0" >Popularity</option>
-        <option value="1">Popularity Desc</option>
+        <option value="popular" >Popular</option>
+        <option value="ascending">Ascending</option>
+        <option value="descending">Descending</option>
     </select>
       
     );
