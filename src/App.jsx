@@ -3,14 +3,14 @@ import './App.css';
 import Header from '../components/Header';
 import DropdownList from '../components/DropdownList';
 import ThumbnailsPage from '../components/ThumbnailsPage';
-//import {Buttons} from '/components/Buttons.jsx';
+import ButtonsPrevNext from '../components/ButtonsPrevNext';
 
 import SheetContext from '../components/context/sheetContext';
 
 
 const App = () => {
     const [orderOption, setOrderText] = useState('0');
-    const [pageOption, setPageOption] = useState('1');
+    const [pageOption, setPageOption] = useState(1);
 // This changes the order of the books. orderOption is the Dropdownlist option and pageOption is the API by page.
     return (
         <div>
@@ -25,7 +25,7 @@ const App = () => {
                 }}
             >
                 <DropdownList />
-
+                <ButtonsPrevNext/>
                 <ThumbnailsPage />
             </SheetContext.Provider>
         </div>
