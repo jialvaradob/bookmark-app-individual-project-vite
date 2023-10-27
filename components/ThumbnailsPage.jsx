@@ -53,8 +53,8 @@ console.log(context.pageOption, context.orderOption)
             {loading && <Loading />}
             {error && <p className="error">{Error}</p>}
             {!error &&
-                books.map((book, index) => (
-            <Book key={index} book={book} />
+                books.map((book, id) => (
+            <Book key={id} book={book} />
     ))}
         </div>
     );
