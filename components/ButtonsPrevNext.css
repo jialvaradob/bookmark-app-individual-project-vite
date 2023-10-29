@@ -1,16 +1,33 @@
-.button-div {
-    position: fixed;
-    flex: auto;
+
+.btn-prev,
+.btn-next {
+    width: 100px; 
+    height: 100px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: fixed; 
+    top: 50%; 
 }
 
 .btn-prev {
-    size: 180px; 
-    align-self: flex-start;
+    left: 10px; 
 }
 
-
 .btn-next {
-    size: 180px;
-    align-self: flex-end;
+    right: 10px; 
+}
 
+.btn-prev:hover,
+.btn-next:hover {
+    
+    color: black; 
+    border: 2px solid #007BFF;
 }
