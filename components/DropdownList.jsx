@@ -1,5 +1,6 @@
 import {useContext} from 'react';
-import SheetContext from './context/sheetContext'; 
+import SheetContext from './context/sheetContext';
+import './DropdownList.css';
 
 const DropdownList = () => {
     //const [selectedValue, setSelectedValue] = useState('default');
@@ -11,7 +12,7 @@ const DropdownList = () => {
 
 
     return (
-    <select value={data.orderOption} onChange={(e) => data.setOrderText(e.target.value)}>
+    <select className="dropdown-list" value={data.orderOption} onChange={(e) => data.setOrderText(e.target.value)}>
         <option value="popular" >Popular</option>
         <option value="ascending">Ascending</option>
         <option value="descending">Descending</option>

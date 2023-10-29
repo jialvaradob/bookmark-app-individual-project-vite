@@ -21,17 +21,19 @@ console.log(data.pageOption);
     return (
         
     <div className= 'buttonDiv'>
+        <button className='btn-prev'
+        value={data.pageOption} 
+        onClick = {prevPage}
+        > <BsArrowLeftSquareFill/>
+        </button>
+        
         <button className='btn-next' 
         value={data.pageOption}
         onClick = {nextPage}
         > <BsArrowRightSquareFill/>
         </button>
 
-        <button className='btn-prev'
-        value={data.pageOption} 
-        onClick = {prevPage}
-        > <BsArrowLeftSquareFill/>
-        </button>
+        
     </div>
        
     );

@@ -7,15 +7,24 @@ import { BsBookmark } from 'react-icons/bs';
 import './Book.css';
 
 const Book = ({book}) => {
-    console.log (book, 'this is the book info 1');
+
     const [read, setRead] = useState(false);
-    //const [bookmark, setBookmark] = useState([]);
-
-    const toggleRead = () => {
-        setRead((prevRead) => !prevRead);
+    const [bookmark, setBookmark] = useState([]);
+    
+    const toggleReadAndBookmark = () => {
+        setRead((prevRead) => {
+            const newReadState = !prevRead;
+            if (newReadState) {
+                // If the book is being marked as read, add it to favorites
+                setBookmark([...bookmark, book]);
+            } else {
+                // If the book is being marked as unread, remove it from favorites
+                setBookmark(bookmark.filter(bookmark => bookmark.id !== book.id));
+            }
+            console.log(toString(bookmark));
+            return newReadState;
+        });
     };
-
-    //console.log (book.title, book.formats['image/jpeg'], book.authors[0].name, 'this is the book info 2');
 
     return (
         <div className={`book-container ${read ? 'yes' : 'no'}`}>
@@ -30,14 +39,20 @@ const Book = ({book}) => {
                 />
             </div>
             <div className="book-details">
-                <h2>{book.title}</h2>
-                <p>{book.authors.name}</p>
+              <h2>{book.title}</h2>
+              {book.authors.map((author, id) => (
+              <p key={id}>{author.name}</p>
+                ))}
                 <div className="read-btn-container">
-                    <button onClick={toggleRead} className="read-button">
+                    <button onClick={toggleReadAndBookmark} className="read-button">
                         <BsBookmark color={read ? 'red' : 'blue'} size={32} /> 
                     </button> 
+                
                 </div>
             </div>
+            {/* {bookmark.map((book, index) => (
+    <Book key={index} book={book} />
+))} */}
         </div>
     );
 };
@@ -47,8 +62,11 @@ Book.propTypes = {
         title: PropTypes.string.isRequired,
         authors: PropTypes.array.isRequired,
         name: PropTypes.string.isRequired,
-        formats: PropTypes.string.isRequired
-    })
+        formats: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired
+    }),
+    onBookmark: PropTypes.func.isRequired,
+    bookmarks: PropTypes.array.isRequired,
 };
 
 export default Book;

@@ -8,12 +8,16 @@ import Loading from '/components/Loading.jsx';
 
 import SheetContext from './context/sheetContext';
 
+
+
 const BookList = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const context = useContext(SheetContext);
 
+      
+        
     //const searchText = data.searchText;
 console.log(context.pageOption, context.orderOption)
     useEffect(() => {
@@ -47,18 +51,19 @@ console.log(context.pageOption, context.orderOption)
         getData();
     }, [context.pageOption, context.orderOption]);
     // Everytime context variable changes then it is refreshed.
+    
 
-    return (
+      return (
         <div className="book-library">
             {loading && <Loading />}
-            {error && <p className="error">{Error}</p>}
-            {!error &&
-                books.map((book, id) => (
-            <Book key={id} book={book} />
-    ))}
+            {error && <p className="error">{error}</p>}
+            {!error && books.map((book, id) => (
+                <Book key={id} book={book} />
+            ))}
+           
         </div>
     );
-};
+            };
 
-
+            
 export default BookList;
